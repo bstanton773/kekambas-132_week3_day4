@@ -38,3 +38,9 @@ class Blog:
         # if we go through the for loop without breaking, we know we have invalid credentials
         else:
             print('Username and/or password is incorrect.')
+
+    # Method to log a user out by setting the current_user to None
+    def log_user_out(self):
+        username = self.current_user.username
+        self.current_user = None
+        print(f'{username} has successfully logged out')
