@@ -21,6 +21,9 @@ def run_blog():
         elif to_do == '1':
             # Call the create new user method on the blog
             blog.create_new_user()
+        elif to_do == '2':
+            # Call the log user in function
+            blog.log_user_in()
         else:
             print(f'Option {to_do} is a work in progress!')
 
