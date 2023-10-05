@@ -25,6 +25,8 @@ def run_blog():
             elif to_do == '2':
                 # Call the log user in function
                 blog.log_user_in()
+            elif to_do == '3':
+                blog.view_posts()
             else:
                 print(f'Option {to_do} is a work in progress!')
         else:
@@ -40,6 +42,8 @@ def run_blog():
                 blog.log_user_out()
             elif to_do == '2':
                 blog.create_new_post()
+            elif to_do == '3':
+                blog.view_posts()
             
 
     # Once the user quits

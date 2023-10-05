@@ -59,3 +59,14 @@ class Blog:
             print(f"{new_post.title} has been created!")
         else:
             print("You must be logged in to perform this action") # 401 Unauthorized Status Code
+
+    # Method to view all posts
+    def view_posts(self):
+        # Check if there are any posts
+        if self.posts:
+            # Loop through the blog's posts list
+            for post in self.posts:
+                # print the post (__str__ already formats it for us)
+                print(post)
+        else:
+            print("There are currently no posts for this blog :( ")
