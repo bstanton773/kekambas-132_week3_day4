@@ -27,6 +27,13 @@ def run_blog():
                 blog.log_user_in()
             elif to_do == '3':
                 blog.view_posts()
+            elif to_do == '4':
+                post_id = input('What is the ID of the post you would like to view? ')
+                # If the post is not a digit, re-ask the question
+                while not post_id.isdigit():
+                    post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
+                # Call the view single post method with the integer version of post_id
+                blog.view_post(int(post_id))
             else:
                 print(f'Option {to_do} is a work in progress!')
         else:
@@ -44,6 +51,13 @@ def run_blog():
                 blog.create_new_post()
             elif to_do == '3':
                 blog.view_posts()
+            elif to_do == '4':
+                post_id = input('What is the ID of the post you would like to view? ')
+                # If the post is not a digit, re-ask the question
+                while not post_id.isdigit():
+                    post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
+                # Call the view single post method with the integer version of post_id
+                blog.view_post(int(post_id))
             
 
     # Once the user quits
