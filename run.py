@@ -29,7 +29,7 @@ def run_blog():
                 print(f'Option {to_do} is a work in progress!')
         else:
             # print menu options for a logged in user
-            print("1. Sign Out\n2. Create Post\n3. View All Posts\n4. View Single Post\n5. Edit A Post\n6. Delete A Post")
+            print("1. Sign Out\n2. Create A Post\n3. View All Posts\n4. View Single Post\n5. Edit A Post\n6. Delete A Post")
             # Ask the user what they would like to do
             to_do = input('Which option would you like to do? ')
             # While the user inputs an invalid option
@@ -38,6 +38,8 @@ def run_blog():
                 to_do = input('Invalid option. Please choose 1, 2, 3, 4, 5, or 6: ')
             if to_do == '1':
                 blog.log_user_out()
+            elif to_do == '2':
+                blog.create_new_post()
             
 
     # Once the user quits

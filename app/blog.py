@@ -1,4 +1,4 @@
-from app.models import User
+from app.models import User, Post
 
 class Blog:
     def __init__(self):
@@ -44,3 +44,18 @@ class Blog:
         username = self.current_user.username
         self.current_user = None
         print(f'{username} has successfully logged out')
+
+    # Method to add a new post to the blog, authored by the logged in user
+    def create_new_post(self):
+        # Check to make sure we have a logged in user
+        if self.current_user is not None:
+            # Get the title and body for the new post from input
+            title = input("Enter new post title: ")
+            body = input("Enter new post body: ")
+            # Create a new instance of Post with the inputted info + logged in user
+            new_post = Post(title, body, self.current_user)
+            # Add the new post to the blog's posts list
+            self.posts.append(new_post)
+            print(f"{new_post.title} has been created!")
+        else:
+            print("You must be logged in to perform this action") # 401 Unauthorized Status Code
