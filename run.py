@@ -76,6 +76,12 @@ def run_blog():
                 while not post_id.isdigit():
                     post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
                 blog.edit_post(int(post_id))
+            elif to_do == '6':
+                post_id = input('What is the ID of the post you would like to delete? ')
+                # If the post is not a digit, re-ask the question
+                while not post_id.isdigit():
+                    post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
+                blog.delete_post(int(post_id))
             
 
     # Once the user quits
