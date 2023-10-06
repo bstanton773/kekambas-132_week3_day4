@@ -1,10 +1,22 @@
 from app import Blog
+from app.models import Post, User
 
 
 def run_blog():
     print("Welcome to the Kekambas Blog!")
     # Create an instance of the Blog class
     blog = Blog()
+
+    # CREATE SOME INITIAL DATA
+    user1 = User('brians', 'abc123')
+    user2 = User('jumpman23', '6rings')
+    blog.users.append(user1)
+    blog.users.append(user2)
+    post1 = Post('Fri-yay!', 'It is Friday, hooray!', user1)
+    post2 = Post('Weekend', 'I am ready for the weekend', user2)
+    blog.posts.append(post1)
+    blog.posts.append(post2)
+
     # Start "running" our blog until the user quits
     while True:
         if blog.current_user is None:
@@ -58,6 +70,12 @@ def run_blog():
                     post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
                 # Call the view single post method with the integer version of post_id
                 blog.view_post(int(post_id))
+            elif to_do == '5':
+                post_id = input('What is the ID of the post you would like to edit? ')
+                # If the post is not a digit, re-ask the question
+                while not post_id.isdigit():
+                    post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
+                blog.edit_post(int(post_id))
             
 
     # Once the user quits
@@ -67,6 +85,6 @@ def run_blog():
     print('Goodbye!')
         
     
-
+# If this file is executed by name (as opposed to imported), call the run_blog function
 if __name__ == "__main__":
     run_blog()
