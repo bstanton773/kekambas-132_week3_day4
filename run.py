@@ -50,13 +50,13 @@ def run_blog():
                 print(f'Option {to_do} is a work in progress!')
         else:
             # print menu options for a logged in user
-            print("1. Sign Out\n2. Create A Post\n3. View All Posts\n4. View Single Post\n5. Edit A Post\n6. Delete A Post")
+            print("1. Sign Out\n2. Create A Post\n3. View All Posts\n4. View Single Post\n5. Edit A Post\n6. Delete A Post\n7. Display Profile Picture")
             # Ask the user what they would like to do
             to_do = input('Which option would you like to do? ')
             # While the user inputs an invalid option
-            while to_do not in {'1', '2', '3', '4', '5', '6'}:
+            while to_do not in {'1', '2', '3', '4', '5', '6', '7'}:
                 # redefine to_do with a new input
-                to_do = input('Invalid option. Please choose 1, 2, 3, 4, 5, or 6: ')
+                to_do = input('Invalid option. Please choose 1, 2, 3, 4, 5, 6, or 7: ')
             if to_do == '1':
                 blog.log_user_out()
             elif to_do == '2':
@@ -82,6 +82,8 @@ def run_blog():
                 while not post_id.isdigit():
                     post_id = input('Invalid ID. Must be an interger. Please enter ID again: ')
                 blog.delete_post(int(post_id))
+            elif to_do == '7':
+                blog.current_user.display_image()
             
 
     # Once the user quits

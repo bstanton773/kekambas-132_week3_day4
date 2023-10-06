@@ -1,4 +1,5 @@
-
+from random import randint
+from ascii_magic import AsciiArt
 
 class User:
     id_counter = 1
@@ -8,6 +9,7 @@ class User:
         User.id_counter += 1
         self.username = username
         self.__password = password # private variable
+        self.image_url = f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{randint(1,150)}.png"
 
     def __str__(self):
         return self.username
@@ -18,6 +20,11 @@ class User:
     # Method that will take in a password guess and return True if it matches the "private" password, else False 
     def check_password(self, password_guess):
         return self.__password == password_guess
+
+    # Method that will print the User's image to the terminal
+    def display_image(self):
+        prof_image = AsciiArt.from_url(self.image_url)
+        prof_image.to_terminal()
 
 
 class Post:
